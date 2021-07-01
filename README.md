@@ -3,13 +3,12 @@ Node.js todo-example
 
 ## technology stack
 
-* express
 * nodemon       // automatically restart the server
-* dotenv
-* body-parser
+* dotenv        // env file
+* body-parser   // deprecated
 * express
 * mongoose
-* morgan
+* morgan        // log all requests
 
 
 When Express 4.0 was released they decided to remove the bundled middleware from Express and make them separate packages instead. 

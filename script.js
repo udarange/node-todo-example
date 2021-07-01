@@ -1,17 +1,25 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const Joi = require('Joi')
 const express = require('express')
-const path = require('path')
+const path = require('path') // no need to install, came with node
 const app = express()
 const mongoose = require('mongoose')
+const morgan = require('morgan')
 const Todo = require('./models/todo')
 
 // database
 mongoose.connect('mongodb://localhost/firstmongo')
 
 
-app.use('/', express.static(path.resolve(__dirname, 'assets')))
+// console.log(path.resolve(__dirname, 'models')) // <- models directory path
+
+// app.use('/', express.static(path.resolve(__dirname, 'assets')))
 
 // middleware
+app.use(morgan('tiny')) // log request
 app.use(express.json())
 
 // Routes
@@ -91,7 +99,6 @@ app.use('/quotes', QuotesRoute)
 // })
 
 
-app.listen(9001, '127.0.0.1', () => {
-  console.log('Server up')
-})
+const PORT = process.env.PORT || 9001;
+app.listen(PORT, '127.0.0.1', () => {console.log(`Server is running on port:${PORT}`)})
 
