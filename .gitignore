@@ -1,1 +1,5 @@
 node_modules
+/.idea/
+/assets/
+/yarn.lock
+/package-lock.json
