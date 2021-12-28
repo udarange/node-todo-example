@@ -1,5 +1,6 @@
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
+  // require('dotenv').config({ path: `.env.staging` })
+  require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 }
 
 const Joi = require('Joi')
